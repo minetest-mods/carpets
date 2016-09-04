@@ -36,6 +36,10 @@ function carpet.register(recipe, def)
 
 	node.description = node.description or recipe_def.description.." Carpet"
 	node.tiles       = node.tiles       or recipe_def.tiles
+	if node.tiles[6] then  -- prefer "front" site for carpet
+		node.tiles = {node.tiles[6]}
+	end
+
 	node.sounds      = node.sounds      or recipe_def.sounds
 	node.groups      = node.groups      or recipe_def.groups or {}
 
