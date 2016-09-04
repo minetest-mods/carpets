@@ -20,6 +20,7 @@ function carpet.enabledfilter(name, def)
 	   def.drawtype == "firelike"   or
            def.drawtype == "airlike"    or 
            def.drawtype == "plantlike"  or 
+           def.drawtype == "nodebox"  or 
 	   def.drawtype == "raillike"   then
                 return false
         end
