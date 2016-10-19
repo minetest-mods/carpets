@@ -7,7 +7,7 @@ depmod = modutils.get_depmod("carpets")
 function carpet.enabledfilter(name, def)
 -- disable carpets from loaded modules but not defined in dependency
 	if depmod.check_depmod(name) == false then  
-	        return false
+		return false
 	end
 
 -- disable carpets for blocks without description
@@ -16,19 +16,19 @@ function carpet.enabledfilter(name, def)
 	end
 
 -- not supported node types for carpets
-        if def.drawtype == "liquid"     or
+	if def.drawtype == "liquid"     or
 	   def.drawtype == "firelike"   or
-           def.drawtype == "airlike"    or 
-           def.drawtype == "plantlike"  or 
-           def.drawtype == "nodebox"  or 
+	   def.drawtype == "airlike"    or
+	   def.drawtype == "plantlike"  or
+	   def.drawtype == "nodebox"  or
 	   def.drawtype == "raillike"   then
-                return false
-        end
+		return false
+	end
 
 -- no carpet for signs, rail, ladder
-        if def.paramtype2 == "wallmounted" then
-                return false
-        end
+	if def.paramtype2 == "wallmounted" then
+		return false
+	end
 
 -- all checks passed
 	return true
