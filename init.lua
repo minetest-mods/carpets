@@ -1,12 +1,13 @@
 dofile(minetest.get_modpath("carpets").."/carpet_api.lua")
+
 dofile(minetest.get_modpath("carpets").."/modutils.lua")
 
-depmod = modutils.get_depmod("carpets")
+depmod = carpets.modutils.get_depmod("carpets")
 
 
 function carpet.enabledfilter(name, def)
 -- disable carpets from loaded modules but not defined in dependency
-	if depmod.check_depmod(name) == false then  
+	if depmod:check_depmod(name) == false then
 		return false
 	end
 
