@@ -1,5 +1,6 @@
-dofile(minetest.get_modpath("carpets").."/carpet_api.lua")
+carpets = {}
 
+dofile(minetest.get_modpath("carpets").."/carpet_api.lua")
 dofile(minetest.get_modpath("carpets").."/modutils.lua")
 
 depmod = carpets.modutils.get_depmod("carpets")
