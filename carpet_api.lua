@@ -1,5 +1,3 @@
-carpet = {}
-
 local config = Settings(minetest.get_modpath("carpets").."/settings.txt")
 
 local carpet_proto = {
@@ -19,7 +17,7 @@ if config:get_bool("WoolFeeling") then
 end
 
 
-function carpet.register(recipe, def)
+function carpets.register(recipe, def)
 	local node = {}
 
 	if def then
