@@ -5,28 +5,12 @@ local modpath = minetest.get_modpath(modname)
 
 dofile(modpath .. "/api.lua")
 
-local depends = (function()
-	local file = io.open(modpath .. "/depends.txt")
-	if not file then
-		return {}
-	end
-
-	local depends = {}
-	for line in file:lines() do
-		if line:sub(-1) == "?" then
-			line = line:sub(1, -2)
-		end
-		depends[line] = true
-	end
-
-	file:close()
-
-	return depends
-end)()
+local modutils = dofile(modpath .. "/modutils.lua")
+local depmod = modutils.get_depend_checker(modname)
 
 local function filter(name, def)
 	-- disable carpets from loaded modules but not defined in dependency
-	if not depends[def.mod_origin] then
+	if not depmod:check_depend(def.mod_origin) then
 		return false
 	end
 
