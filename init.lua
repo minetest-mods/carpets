@@ -10,7 +10,7 @@ local depmod = modutils.get_depend_checker(modname)
 
 local function filter(name, def)
 	-- disable carpets from loaded modules but not defined in dependency
-	if not depmod:check_depend(def.mod_origin) then
+	if not depmod:check_depend_by_itemname(name) then
 		return false
 	end
 
