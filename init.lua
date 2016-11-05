@@ -8,7 +8,7 @@ dofile(modpath .. "/api.lua")
 local depends = (function()
 	local file = io.open(modpath .. "/depends.txt")
 	if not file then
-		return
+		return {}
 	end
 
 	local depends = {}
