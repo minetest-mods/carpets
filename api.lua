@@ -34,16 +34,27 @@ function carpets.register(recipe, def)
 	local recipe_def = minetest.registered_nodes[recipe]
 
 	node.description = node.description or recipe_def.description .. " Carpet"
-	node.tiles       = node.tiles       or recipe_def.tiles
+	node.tiles = node.tiles or recipe_def.tiles
 
-	if node.tiles[6] then -- prefer "front" site for carpet
+	if node.tiles[6] then
+		-- prefer "front" site for carpet
 		node.tiles = {node.tiles[6]}
 	end
 
-	node.sounds = node.sounds or recipe_def.sounds
-	node.groups = node.groups or recipe_def.groups or {}
+	if not node.sounds then
+		--copy by reference because no change expected
+		node.sounds = recipe_def.sounds
+	end
 
-	node.groups.leafdecay = nil
+	if not node.groups then
+		node.groups = {}
+		-- copy by value because of some changes
+		for k, v in pairs(recipe_def.groups) do
+			node.groups[k] = v
+		end
+
+		node.groups.leafdecay = nil
+	end
 
 	if config:get_bool("FallingCarpet") and node.groups.falling_node == nil then
 		node.groups.falling_node = 1
