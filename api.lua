@@ -49,10 +49,11 @@ function carpets.register(recipe, def)
 	if not node.groups then
 		node.groups = {}
 		-- copy by value because of some changes
-		for k, v in pairs(recipe_def.groups) do
-			node.groups[k] = v
+		if recipe_def.groups then
+			for k, v in pairs(recipe_def.groups) do
+				node.groups[k] = v
+			end
 		end
-
 		node.groups.leafdecay = nil
 	end
 
