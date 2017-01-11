@@ -19,13 +19,8 @@ if config:get_bool("WoolFeeling") then
 end
 
 function carpets.register(recipe, def)
-	local node = {}
 
-	if def then
-		for k, v in pairs(def) do
-			node[k] = v
-		end
-	end
+	local node = table.copy(def or {})
 
 	for k, v in pairs(carpet_proto) do
 		node[k] = v
@@ -33,29 +28,15 @@ function carpets.register(recipe, def)
 
 	local recipe_def = minetest.registered_nodes[recipe]
 
-	node.description = node.description or recipe_def.description .. " Carpet"
-	node.tiles = node.tiles or recipe_def.tiles
+	node.description = node.description or recipe_def.description.." Carpet"
+	node.tiles = table.copy(node.tiles  or recipe_def.tiles or {})
+	node.sounds = table.copy(node.sounds or recipe_def.sounds or {})
+	node.groups = table.copy(node.groups or recipe_def.groups or {})
 
 	if node.tiles[6] then
-		-- prefer "front" site for carpet
 		node.tiles = {node.tiles[6]}
 	end
-
-	if not node.sounds then
-		--copy by reference because no change expected
-		node.sounds = recipe_def.sounds
-	end
-
-	if not node.groups then
-		node.groups = {}
-		-- copy by value because of some changes
-		if recipe_def.groups then
-			for k, v in pairs(recipe_def.groups) do
-				node.groups[k] = v
-			end
-		end
-		node.groups.leafdecay = nil
-	end
+	node.groups.leafdecay = nil
 
 	if config:get_bool("FallingCarpet") and node.groups.falling_node == nil then
 		node.groups.falling_node = 1
