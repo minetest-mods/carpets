@@ -19,6 +19,11 @@ local function filter(name, def)
 		return false
 	end
 
+	-- no 3rd hand carpets
+	if def.material then
+		return false
+	end
+
 	-- not supported node types for carpets
 	if def.drawtype == "liquid"    or
 	   def.drawtype == "firelike"  or

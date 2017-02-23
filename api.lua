@@ -37,6 +37,8 @@ function carpets.register(recipe, def)
 		node.tiles = {node.tiles[6]}
 	end
 	node.groups.leafdecay = nil
+	node.material = recipe
+	node.formation = "carpet"
 
 	if config:get_bool("FallingCarpet") and node.groups.falling_node == nil then
 		node.groups.falling_node = 1
