@@ -20,7 +20,7 @@ local function filter(name, def)
 	end
 
 	-- no 3rd hand carpets
-	if def.material then
+	if def.base_material then
 		return false
 	end
 
