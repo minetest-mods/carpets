@@ -10,6 +10,12 @@ local carpet_proto = {
 	node_box = {
 		type = "fixed",
 		fixed = {-0.5, -0.5, -0.5, 0.5, -0.45, 0.5}
+	},
+	groups = {
+		snappy = 2,
+		flammable = 3,
+		oddly_breakable_by_hand = 3,
+		choppy = 2
 	}
 }
 
@@ -19,24 +25,26 @@ if config:get_bool("WoolFeeling") then
 end
 
 function carpets.register(recipe, def)
-
-	local node = table.copy(def or {})
-
-	for k, v in pairs(carpet_proto) do
-		node[k] = v
+	local node = table.copy(carpet_proto)
+	if def then
+		for k,v in pairs(def) do
+			node.k = v
+		end
+	else
+		def = {}
 	end
 
 	local recipe_def = minetest.registered_nodes[recipe]
-
-	node.description = node.description or recipe_def.description.." Carpet"
-	node.tiles = table.copy(node.tiles  or recipe_def.tiles or {})
-	node.sounds = table.copy(node.sounds or recipe_def.sounds or {})
-	node.groups = table.copy(node.groups or recipe_def.groups or {})
+	node.description = def.description or recipe_def.description.." Carpet"
+	node.tiles  = table.copy(def.tiles or recipe_def.tiles or {})
+	node.sounds = table.copy(def.sounds or recipe_def.sounds or {})
+	if def.groups then
+		node.groups = table.copy(def.groups)
+	end
 
 	if node.tiles[6] then
 		node.tiles = {node.tiles[6]}
 	end
-	node.groups.leafdecay = nil
 	node.base_material = recipe
 	node.shape_type = "carpet"
 
