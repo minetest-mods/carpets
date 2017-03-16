@@ -15,7 +15,8 @@ local carpet_proto = {
 		snappy = 2,
 		flammable = 3,
 		oddly_breakable_by_hand = 3,
-		choppy = 2
+		choppy = 2,
+		carpet = 1,
 	}
 }
 
@@ -45,8 +46,6 @@ function carpets.register(recipe, def)
 	if node.tiles[6] then
 		node.tiles = {node.tiles[6]}
 	end
-	node.base_material = recipe
-	node.shape_type = "carpet"
 
 	if config:get_bool("FallingCarpet") and node.groups.falling_node == nil then
 		node.groups.falling_node = 1

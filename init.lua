@@ -20,17 +20,34 @@ local function filter(name, def)
 	end
 
 	-- no 3rd hand carpets
-	if def.base_material then
-		return false
+	local ignore_groups = {
+		not_in_creative_inventory = true,
+		carpet = true,
+		door = true,
+		fence = true,
+		stair = true,
+		slab = true,
+		wall = true,
+		micro = true,
+		panel = true,
+		slope = true,
+	}
+	for k,v in pairs(def.groups) do
+		if ignore_groups[k] then
+			return false
+		end
 	end
 
 	-- not supported node types for carpets
-	if def.drawtype == "liquid"    or
-	   def.drawtype == "firelike"  or
-	   def.drawtype == "airlike"   or
-	   def.drawtype == "plantlike" or
-	   def.drawtype == "nodebox"   or
-	   def.drawtype == "raillike"  then
+	local ignore_drawtype = {
+		liquid = true,
+		firelike = true,
+		airlike = true,
+		plantlike = true,
+		nodebox = true,
+		raillike = true,
+	}
+	if ignore_drawtype[def.drawtype] then
 		return false
 	end
 
