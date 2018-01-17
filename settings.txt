@@ -1,2 +1,0 @@
-FallingCarpet = false
-WoolFeeling = false
