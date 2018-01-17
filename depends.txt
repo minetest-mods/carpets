@@ -1,10 +1,1 @@
-wool
-default?
-farming?
-bones?
-castle?
-darkage?
-moreblocks?
-plasticbox?
-princess?
-moretrees?
+wool?

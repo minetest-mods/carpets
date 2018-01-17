@@ -1,3 +1,2 @@
-NoFlyCarpet = true
 FallingCarpet = false
 WoolFeeling = false
