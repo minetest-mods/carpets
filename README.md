@@ -6,7 +6,7 @@ This mod adds 15 colorized wool carpets to the minetest
 
 Maintained version, based on https://forum.minetest.net/viewtopic.php?t=15459 and https://forum.minetest.net/viewtopic.php?f=11&t=11637
 
-License: WTFPL
+License: LGPL-2.1+.
 
 The mod provides an api to register more carpets using template nodes
 Example: 
