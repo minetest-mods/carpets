@@ -1,6 +1,6 @@
 # Carpets mod for minetest
 
-This mod adds 15 colorized wool carpets to the minetest
+This mod adds 15 colorized wool carpets to the minetest.
 
 ![](https://github.com/bell07/minetest-carpets/blob/master/screenshot.png)
 
@@ -10,6 +10,6 @@ License: LGPL-2.1+.
 
 The mod provides an api to register more carpets using template nodes
 Example: 
-```
-carpets.register('default:dirt') -- registers carpet looks like dirt
+```lua
+carpets.register('default:dirt', {description=S('Carpet dirt')}) -- registers carpet looks like dirt
 ```
