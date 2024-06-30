@@ -1,20 +1,18 @@
 # textdomain: carpets
 
-
-### init.lua ###
-
-Black Carpet=Nigra tapiŝo
-Blue Carpet=Blua tapiŝo
-Brown Carpet=Bruna tapiŝo
-Cyan Carpet=Bluverda tapiŝo
-Dark Green Carpet=Malhela verda tapiŝo
-Dark Grey Carpet=Malhela griza tapiŝo
-Green Carpet=Verda tapiŝo
-Grey Carpet=Griza tapiŝo
-Magenta Carpet=Fuksina tapiŝo
-Orange Carpet=Oranĝa tapiŝo
-Pink Carpet=Rozkolora tapiŝo
-Red Carpet=Ruĝa tapiŝo
-Violet Carpet=Violkolora tapiŝo
-White Carpet=Blanka tapiŝo
-Yellow Carpet=Flava tapiŝo
+##[ init.lua ]##
+Black carpet=Nigra tapiŝo
+Blue carpet=Blua tapiŝo
+Brown carpet=Bruna tapiŝo
+Cyan carpet=Bluverda tapiŝo
+Dark Green carpet=Malhela verda tapiŝo
+Dark Grey carpet=Malhela griza tapiŝo
+Green carpet=Verda tapiŝo
+Grey carpet=Griza tapiŝo
+Magenta carpet=Fuksina tapiŝo
+Orange carpet=Oranĝa tapiŝo
+Pink carpet=Rozkolora tapiŝo
+Red carpet=Ruĝa tapiŝo
+Violet carpet=Violkolora tapiŝo
+White carpet=Blanka tapiŝo
+Yellow carpet=Flava tapiŝo
